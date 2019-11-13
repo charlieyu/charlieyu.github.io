@@ -7,7 +7,7 @@ layout: default
     <div class="col-sm-9 col-md-9">
       {%- if site.posts.size > 0 -%}
       {%- for post in site.posts -%}
-      <div class="card" style="width: 100%; margin:10px; height: 10rem;">
+      <div class="card" style="width: 100%; margin:10px;">
         <div class="card-body">
           <h5 class="card-title"><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h5>
           {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
@@ -15,9 +15,9 @@ layout: default
           {%- if site.show_excerpts -%}
           <p class="card-text">{{ post.description }}</p>
           {%- endif -%}
-          <div style="position: absolute; bottom: 10px;">
+          <!-- <div style="position: absolute; bottom: 10px;">
             <a href="{{ post.url | relative_url }}" class="card-link">更多</a>
-          </div>
+          </div> -->
         </div>
       </div>
       {%- endfor -%}
