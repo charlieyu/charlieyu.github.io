@@ -1,0 +1,110 @@
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+html {
+  height: 100%;
+}
+
+body{
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+main > .container {
+  padding: 60px 15px 0;
+  flex: 1;
+}
+
+.footer {
+  background-color: #f5f5f5;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.post-content h1{
+  font-size: 1.3em;
+  font-weight:bold;
+  border-bottom: 1px solid #eeeeee;
+  padding-bottom: 3px;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+.post-content h2{
+  font-size: 1.2em;
+  font-weight: bold;
+  border-bottom: 1px solid #eeeeee;
+  padding-bottom: 3px;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+.post-content h3{
+  font-size: 1.1em;
+  font-weight:bold;
+  border-bottom: 1px solid #eeeeee;
+  padding-bottom: 3px;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+.post-content h3{
+  font-size: 1.1em;
+  font-weight:bold;
+  border-bottom: 1px solid #eeeeee;
+  padding-bottom: 3px;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+.post-content {
+  font: 1em;
+  line-height: 1.5em;
+}
+
+
+/* 文章 */
+.post-desc {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.post-meta, .post-meta a {
+  color: #999;
+}
+
+.post-title {
+  font-weight: bold;
+  font-size: 2em;
+  color: black;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.toc-list{
+  padding-left:10px;
+  list-style: none;
+}
+
+.is-active-link{
+  font-weight: 700 !important;
+  color: #54bc4b !important;
+}
+
+/* 搜索 */
+#results-container li{
+  list-style: none;
+  line-height: 1.5em;
+  padding-left:10px;
+}

@@ -1,0 +1,49 @@
+---
+layout: default
+---
+<article class="container">
+  <div class="row">
+    <div class="col-md-10">
+      <header>
+        <div class="post-title">{{ page.title | escape }}</div>
+        <p class="post-meta">
+          <time>
+            {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+            {{ page.date | date: date_format }}
+          </time>
+      </header>
+      <div class="post-content">
+        {{ content }}
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="position-fixed" style="margin-top:2em; width: auto;">
+        <a href="javascript:window.scrollTo(0,0)">&uarr; 返回顶部</a>
+        <hr/>
+        <div id='js-toc'></div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+
+<script>
+  tocbot.init({
+    // Where to render the table of contents.
+    tocSelector: '#js-toc',
+    // Where to grab the headings to build the table of contents.
+    contentSelector: '.post-content',
+    // Which headings to grab inside of the contentSelector element.
+    headingSelector: 'h1, h2, h3',
+    // For headings inside relative or absolute positioned containers within content.
+    hasInnerContainers: false,
+    collapseDepth: 3,
+    headingsOffset: 0,
+    scrollSmoothOffset: 0,
+    orderedList: false,
+  });
+</script>
