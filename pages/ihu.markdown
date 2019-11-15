@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 关于
-permalink: /ihu/
+permalink: /ihu
 ---
 
 # 重新入坑PHP的启示
