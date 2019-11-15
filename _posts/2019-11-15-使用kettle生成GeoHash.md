@@ -14,7 +14,7 @@ keywords: kettle, spoon, geohash
 kettle生成GeoHash只能通过编写脚本实现，鉴于网上已经有很多java脚本可以用了，所以我们导入kettle，就不自己写了。  
 ## 将.java打包成.jar
 ### 下载Class文件 
-[https://github.com/GongDexing/Geohash/blob/master/src/cn/net/communion/GeoHashHelper.java](https://github.com/GongDexing/Geohash/blob/master/src/cn/net/communion/GeoHashHelper.java)   
+[GeoHashHelper.java](https://github.com/GongDexing/Geohash/blob/master/src/cn/net/communion/GeoHashHelper.java)   
 ### 编译Class文件
 ```sh
 javac GeoHashHelper.class
@@ -34,15 +34,69 @@ jar cvfm GeoHashHelper.jar test.mf GeoHashHelper.class
 
 
 # 编写java脚本生成GeoHash
-![kttle geohash java](/images/kettle-geohash.jpg)
+![kttle geohash java](/images/kettle-geohash.jpg)  
+
 ```java
-String latitudeStr = get(Fields.In, "latitude").getString(r);
-String longitudeStr = get(Fields.In, "longitude").getString(r);
-Double latitude = Double.parseDouble(latitudeStr);
-Double longitude = Double.parseDouble(longitudeStr);
+public boolean processRow(StepMetaInterface smi, StepDataInterface sdi) throws KettleException {
+  if (first) {
+    first = false;
 
-GeoHashHelper  geoHashHelper = new GeoHashHelper();
-String geoHash = geoHashHelper.encode(latitude, longitude);
+    /* TODO: Your code here. (Using info fields)
 
-get(Fields.Out, "geohash").setValue(r, geoHash);
+    FieldHelper infoField = get(Fields.Info, "info_field_name");
+
+    RowSet infoStream = findInfoRowSet("info_stream_tag");
+
+    Object[] infoRow = null;
+
+    int infoRowCount = 0;
+
+    // Read all rows from info step before calling getRow() method, which returns first row from any
+    // input rowset. As rowMeta for info and input steps varies getRow() can lead to errors.
+    while((infoRow = getRowFrom(infoStream)) != null){
+
+      // do something with info data
+      infoRowCount++;
+    }
+    */
+  }
+
+  Object[] r = getRow();
+
+  if (r == null) {
+    setOutputDone();
+    return false;
+  }
+
+  // It is always safest to call createOutputRow() to ensure that your output row's Object[] is large
+  // enough to handle any new fields you are creating in this step.
+  r = createOutputRow(r, data.outputRowMeta.size());
+
+  /* TODO: Your code here. (See Sample)
+
+  // Get the value from an input field
+  String foobar = get(Fields.In, "a_fieldname").getString(r);
+
+  foobar += "bar";
+    
+  // Set a value in a new output field
+  get(Fields.Out, "output_fieldname").setValue(r, foobar);
+
+  */
+    String latitudeStr = get(Fields.In, "latitude").getString(r);
+    String longitudeStr = get(Fields.In, "longitude").getString(r);
+    Double latitude = Double.parseDouble(latitudeStr);
+    Double longitude = Double.parseDouble(longitudeStr);
+
+    GeoHashHelper  geoHashHelper = new GeoHashHelper();
+    String geoHash = geoHashHelper.encode(latitude, longitude);
+
+    get(Fields.Out, "geohash").setValue(r, geoHash);
+
+  // Send the row on to the next step.
+  putRow(data.outputRowMeta, r);
+
+  return true;
+}
+
 ```
