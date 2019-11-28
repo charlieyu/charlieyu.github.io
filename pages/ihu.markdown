@@ -21,4 +21,8 @@ permalink: /ihu
 - [thinkphp5.1使用memcahced](https://www.yucanlin.cn/develop/2019/11/15/thinkphp5.1%E4%BD%BF%E7%94%A8memcached.html)
 - [nginx下部署thinkphp5.1](https://www.yucanlin.cn/develop/2019/11/15/nginx%E4%B8%8B%E9%83%A8%E7%BD%B2thinkphp5.1.html)
 
+## php xdebug 调试
+- [php xdebug apache phpstorm 本地调试](/develop/2019/06/18/phpstrom-xdebug-调试.html)
+- [php fpm docker nginx phpstorm 远程调试](/develop/2019/11/27/php-fpm-xdebug-docker-idea.html)
+- [php fpm docker 镜像制作](/develop/operation/2019/11/27/php-fpm-xdebug-docker.html)
 
