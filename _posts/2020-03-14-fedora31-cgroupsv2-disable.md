@@ -12,6 +12,6 @@ fedora31 开启了 CGroupsV2 ，然后 docker 还不支持。
 
 打开 /etc/default/grub 在 GRUB_CMDLINE_LINUX 加入这个选项
 
-跟新grub配置 grub2-mkconfig -o /boot/grub2/grub.cfg
+更新grub配置 grub2-mkconfig -o /boot/grub2/grub.cfg
 
 重启计算机
